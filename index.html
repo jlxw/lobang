@@ -22,17 +22,27 @@
     <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
   </head>
   <body>
-    <amp-list src="https://script.google.com/macros/s/AKfycbxa-bPQLPTfbQGDBuHUPs7aTfas0gA54_gjKJo9Ti6_2lwecTI/exec"
-        width=300 height=200 layout=responsive>
-      <template type="amp-mustache">
-        <div>
-          {{minRate}}
-          {{medianRate}}
+    <ul>
+      <amp-list src="https://script.google.com/macros/s/AKfycbxa-bPQLPTfbQGDBuHUPs7aTfas0gA54_gjKJo9Ti6_2lwecTI/exec"
+          layout=responsive>
+        <template type="amp-mustache">
+          <li>
+            {{minRate}}
+            {{medianRate}}
+            <ul>
+              {{#showRates}}
+                <li>
+                  {{{name}}}
+                  {{lowRate}}
+                </li>
+              {{/showRates}}
+            </ul>
+          </li>
+        </template>
+        <div overflow role=button aria-label="Show more" class="list-overflow">
+          Show more
         </div>
-      </template>
-      <div overflow role=button aria-label="Show more" class="list-overflow">
-        Show more
-      </div>
-    </amp-list>
+      </amp-list>
+    </ul>
   </body>
 </html>
